@@ -5,4 +5,4 @@ if [ "${1#-}" != "$1" ]; then
 	set -- ebusd "$@"
 fi
 
-exec "$@" |& tee -a output.txt
+exec "$@" |& tee -a /var/log/ebusd.log
