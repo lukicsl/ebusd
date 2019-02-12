@@ -21,8 +21,11 @@ RUN rm ebusd.deb
 EXPOSE 8888
 
 RUN mkdir -p /etc/ebusd/encon
+RUN mkfifo /log-pipe
+
 COPY 3c.wolf-cwl-excelent-300.csv /etc/ebusd/encon
 COPY docker-entrypoint.sh /
+COPY log-reader.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["-f", "--scanconfig"]
