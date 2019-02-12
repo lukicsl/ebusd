@@ -22,7 +22,7 @@ while : ; do
         mv $LOGDIR$LOGFILE$LOGEXT $LOGDIR$LOGFILE.$timestamp$LOGEXT
     fi
     if [ $dir_size -gt $MaxDirSize ];then   
-        rm $LOGDIR"$(ls -t $LOGDIR | tail -1)"
+        rm "$(ls -t $LOGDIR$LOGFILE* | tail -1)"
     fi
   fi
 
