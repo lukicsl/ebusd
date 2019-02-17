@@ -6,4 +6,4 @@ if [ "${1#-}" != "$1" ]; then
 fi
 
 exec "$@" &> /log-pipe &
-exec log-reader.sh < /log-pipe 
+exec /log-reader.sh < /log-pipe 
