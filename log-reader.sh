@@ -15,7 +15,7 @@ while : ; do
   if [ $cnt -gt 200 ];then   
     cnt=0
     file_size=`du -b $LOGDIR$LOGFILE$LOGEXT | tr -s '\t' ' ' | cut -d' ' -f1`
-    dir_size=`du -b $LOGDIR | tr -s '\t' ' ' | cut -d' ' -f1`
+    dir_size=`du -b -d0 $LOGDIR | tr -s '\t' ' ' | cut -d' ' -f1`
 
     if [ $file_size -gt $MaxFileSize ];then   
         timestamp=`date +%s`
